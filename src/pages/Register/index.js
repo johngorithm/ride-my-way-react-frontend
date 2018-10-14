@@ -1,11 +1,9 @@
 import React, { Fragment } from 'react';
-import NavBar from '../../components/NavBar';
 import './register.css';
 
 const Register = () => {
   return (
     <Fragment>
-      <NavBar />
       <main id="register-page" className="content">
         <div className="overlay" />
         <div className="wrapper">

@@ -1,11 +1,9 @@
 import React, { Fragment } from 'react';
-import NavBar from '../../components/NavBar';
 import './login.css';
 
 const Login = () => {
   return (
     <Fragment>
-      <NavBar />
       <main id="login-page" className="content">
         <div className="overlay" />
         <div className="wrapper">

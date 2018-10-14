@@ -2,7 +2,10 @@
   "env": {
     "browser": true
   },
-  "plugins": ["react", "jest"],
+  "plugins": [
+    "react",
+    "jest"
+  ],
   "extends": [
     "airbnb-base",
     "plugin:react/recommended",
@@ -15,6 +18,7 @@
       "createClass": "createReactClass",
       "pragma": "React",
       "version": "16.0"
-    }
+    },
+    "import/resolver": "webpack"
   }
 }
