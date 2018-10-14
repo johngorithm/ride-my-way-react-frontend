@@ -1,0 +1,70 @@
+#register-page {
+  background-image: url('../../static/images/carpool with friends.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  bottom: 0;
+}
+
+#register-page.content .wrapper {
+  background: white;
+  box-shadow: 0 2px 3px 2px rgba(0, 0, 0, 0.08);
+  padding: 0;
+  border-radius: 4px;
+}
+
+#register-page.content .wrapper h3 {
+  font-size: 15px;
+  color: rgb(60, 54, 54);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  background: white;
+  padding: 17px 10px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+@media only screen and (max-width: 450px) {
+  #register-page.content .wrapper {
+    width: 300px;
+  }
+  #register-page.content .wrapper h3 {
+    font-size: 15px;
+  }
+}
+
+#register-page.content .wrapper form {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+#register-page.content .wrapper form .row {
+  padding: 10px;
+}
+#register-page.content .wrapper form .panel-footer {
+  padding: 10px 15px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+#register-page.content .wrapper form div.field {
+  margin-bottom: 12px;
+  padding: 5px;
+}
+#register-page.content .wrapper form div.field input {
+  margin: 5px 0;
+}
+#register-page.content .wrapper form div.field p.label {
+  font-size: 12px;
+  font-weight: bold;
+}
+#register-page.content .wrapper form div.field p.label span {
+  font-weight: initial;
+}
+
+#register-page.content .overlay {
+  background: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}

@@ -8,11 +8,11 @@ module.exports = {
   transform: {
     '^.+\\.(js|jsx)$': '<rootDir>/node_modules/babel-jest',
     '^.+\\.css$': '<rootDir>/config/cssTransform.js',
-    '^(?!.*\\.(js|jsx|css|json)$)': '<rootDir>/config/fileTransform.js'
+    '^(?!.*\\.(js|jsx|css|json)$)': '<rootDir>/config/fileTransform.js',
   },
   transformIgnorePatterns: [
     '[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$',
-    '/index.js/'
+    '/index.js/',
   ],
-  moduleFileExtensions: ['web.js', 'js', 'json', 'web.jsx', 'jsx', 'node']
+  moduleFileExtensions: ['web.js', 'js', 'json', 'web.jsx', 'jsx', 'node'],
 };
