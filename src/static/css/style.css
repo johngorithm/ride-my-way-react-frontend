@@ -245,7 +245,6 @@ p {
 }
 /****MODAL STYLINGS***/
 .modal{
-    display: none; 
     position: fixed;
     z-index: 3; 
     left: 0;
@@ -361,6 +360,7 @@ nav {
 nav .navbar > p.navbar-toggle {
     display: inline-block;
     position: absolute;
+    border-radius: 20px;
     right: 0;
     top: 14px;
     font-size: 60%;
@@ -403,9 +403,9 @@ nav ul > li > a {
 .nav-right li#dropdown-nav {
     position: relative;
 }
-.nav-right li#dropdown-nav .droppy {
+/* .nav-right li#dropdown-nav .droppy {
     display: none;
-}
+} */
 .nav-right li#dropdown-nav div.dropdown-nav {
     display: block;
     width: 180px;

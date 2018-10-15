@@ -1,17 +1,42 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types'
+
+
+import { openModal } from 'actions/modalActions';
 import logo from '../static/images/favicon.png';
 
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoginIn: false
+      isLoggedIn: true,
+      isDropDownVisible: false,
+      isMobileNavVisible: false
     };
   }
+
+  toggleDropdown(e) {
+    e.preventDefault();
+    this.setState({
+      isDropDownVisible: !this.state.isDropDownVisible
+    })
+  }
+
+  toggleMobileNav(e) {
+    e.preventDefault();
+    this.setState({
+      isMobileNavVisible: !this.state.isMobileNavVisible
+    })
+  }
+
+  openCreateRideModal(e) {
+    e.preventDefault();
+    this.props.openModal('CreateRideModal');
+  }
   render() {
-    if (!this.state.isLoginIn) {
+    if (!this.state.isLoggedIn) {
       return (
         <nav className="navigation">
           <div className="navbar wrapper">
@@ -37,35 +62,38 @@ class NavBar extends React.Component {
       return (
         <nav className="navigation">
           <div className="navbar wrapper">
-            <p className="navbar-toggle small">MENU</p>
+            <p className="navbar-toggle small" onClick={this.toggleMobileNav.bind(this)}>MENU</p>
             <ul className="nav-items nav-left">
               <li className="nav-item">
                 <img src={logo} alt="logo" /> <Link to="./index">RMW </Link>
               </li>
             </ul>
-            <ul className="nav-items nav-right">
+            <ul className="nav-items nav-right" style={this.state.isMobileNavVisible ? { display: 'block' } : null}>
               <li className="nav-item">
                 <Link to="/home">Dashboard</Link>
               </li>
               <li id="offer-ride-btn" className="nav-item">
-                <Link to="#">Offer A Ride</Link>
+                <Link to="#" onClick={this.openCreateRideModal.bind(this)}>Offer A Ride</Link>
               </li>
               <li id="dropdown-nav" className="nav-item">
-                <Link to="#">
+                <Link to="#" onClick={this.toggleDropdown.bind(this)}>
                   <span>User</span> <i className="fas fa-chevron-down" />
                 </Link>
-                <div className="droppy">
-                  <span className="pointer" />
-                  <div className="dropdown-nav">
-                    <Link id="first" to="/profile">
-                      Profile
+                {this.state.isDropDownVisible ? (
+                  <div className="droppy">
+                    <span className="pointer" />
+                    <div className="dropdown-nav">
+                      <Link id="first" to="/profile">
+                        Profile
                     </Link>
-                    <Link to="/notifications">Notifications</Link>
-                    <Link id="logout" to="/index">
-                      Logout
+                      <Link to="/notifications">Notifications</Link>
+                      <Link id="logout" to="#">
+                        Logout
                     </Link>
+                    </div>
                   </div>
-                </div>
+                ) : null}
+
               </li>
             </ul>
           </div>
@@ -75,6 +103,11 @@ class NavBar extends React.Component {
   }
 }
 
-NavBar.propTypes = {};
+NavBar.propTypes = {
+  openModal: PropTypes.func.isRequired
+};
 
-export default NavBar;
+export default connect(
+  null,
+  { openModal }
+)(NavBar);

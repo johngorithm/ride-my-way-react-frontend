@@ -56,7 +56,7 @@ class RideDetailModal extends React.Component {
               <div className="tile-footer center-text">
                 <button className="button button-blue close">CLOSE</button>
                 <button
-                  onClick="joinRide(this)"
+                  //onClick="joinRide(this)"
                   className="button button-white join"
                 >
                   JOIN
