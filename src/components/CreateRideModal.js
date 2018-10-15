@@ -1,10 +1,18 @@
 import React, { Fragment } from 'react';
-// import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
+import { closeModal } from 'actions/modalActions';
 
 class CreateRideModal extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {};
+  // }
+
+  closeModal(e) {
+    e.preventDefault();
+    this.props.closeModal(this.props.modalName)
   }
 
   render() {
@@ -56,7 +64,7 @@ class CreateRideModal extends React.Component {
                 </div>
 
                 <div className="co-xl-12 co-lg-12 co-md-12 co-sm-12 right-text">
-                  <button type="button" className="button button-white close">
+                  <button type="button" className="button button-white close" onClick={this.closeModal.bind(this)}>
                     CLOSE
                   </button>
                   <button type="submit" className="button button-blue create">
@@ -72,4 +80,23 @@ class CreateRideModal extends React.Component {
   }
 }
 
-export default CreateRideModal;
+CreateRideModal.defaultProps = {
+  modalName: 'CreateRideModal'
+}
+
+CreateRideModal.propTypes = {
+  isCreateRideModalOpen: PropTypes.bool.isRequired,
+  closeModal: PropTypes.func.isRequired,
+  modalName: PropTypes.string.isRequired
+}
+
+
+const mapStateToProps = (state) => ({
+  isCreateRideModalOpen: state.modal.isCreateRideModalOpen
+})
+// export { CreateRideModal }
+
+export default connect(
+  mapStateToProps,
+  { closeModal }
+)(CreateRideModal);

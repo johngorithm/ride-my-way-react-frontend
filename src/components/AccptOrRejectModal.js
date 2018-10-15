@@ -23,7 +23,7 @@ class AcceptOrRejectModal extends React.Component {
               <div className="tile-footer center-text">
                 <button className="button button-blue close">CLOSE</button>
                 <button
-                  onClick="acceptOrRejectRequest(this)"
+                  // onClick="acceptOrRejectRequest(this)"
                   className="button button-white yes-btn"
                 >
                   YES

@@ -1,7 +1,7 @@
 import React from 'react';
 import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import App from '../src/App';
+import { App } from '../src/App';
 
 /**
  *  CONFIGURES ENZYME TO BE COMPACTIBLE WITH VERSION 16 OF REACT
