@@ -6,14 +6,14 @@ import 'static/styles/App.css';
 import 'static/css/style.css';
 
 import store from 'store';
-import NavBar from './components/NavBar';
-import Home from './pages/Home';
-import Landing from './pages/Landing';
-import NotFound from './pages/NotFound';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import Requests from './pages/Requests';
-import Profile from './pages/Profile';
+import NavBar from 'components/NavBar';
+import Home from 'pages/Home';
+import Landing from 'pages/Landing';
+import NotFound from 'pages/NotFound';
+import Login from 'pages/Login';
+import Register from 'pages/Register';
+import Requests from 'pages/Requests';
+import Profile from 'pages/Profile';
 
 
 export class App extends Component {
