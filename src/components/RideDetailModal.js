@@ -22,7 +22,7 @@ class RideDetailModal extends React.Component {
                 </h4>
                 <p className="smaller">
                   <strong>from: </strong>
-                  <span>{this.props.ride.takeOffVenue}</span>
+                  <span>{this.props.ride.take_off_venue}</span>
                 </p>
                 <span className="message smaller" />
               </div>
@@ -46,13 +46,13 @@ class RideDetailModal extends React.Component {
 
                 </p>
                 <p className="right">
-                  occupied<span className="badge" id="space-occupied"> {this.props.ride.occupied}</span>
+                  occupied<span className="badge" id="space-occupied"> {this.props.ride.space_occupied}</span>
                 </p>
               </div>
 
               <div className="tile-body driver center-text padded">
                 <p className="data-heading small">Driver</p>
-                <p className="small driver">{this.props.ride.driver}</p>
+                <p className="small driver">{this.props.ride.creator}</p>
               </div>
 
               <div className="tile-footer center-text">

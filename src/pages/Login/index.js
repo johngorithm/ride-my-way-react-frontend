@@ -55,6 +55,7 @@ class Login extends React.Component {
       })
       // Login Action
       this.props.loginUser(this.state.userInfo);
+
     } else {
       this.setState({
         errors: errors
@@ -103,7 +104,8 @@ class Login extends React.Component {
 
 Login.propTypes = {
   loginUser: PropTypes.func.isRequired,
-  deleteAuthErrorMessage: PropTypes.func
+  deleteAuthErrorMessage: PropTypes.func,
+  history: PropTypes.any.isRequired
 }
 
 export default connect(

@@ -36,7 +36,7 @@ class NavBar extends React.Component {
     this.props.openModal('CreateRideModal');
   }
   render() {
-    if (!this.state.isLoggedIn) {
+    if (!this.props.isAuthenticated) {
       return (
         <nav className="navigation">
           <div className="navbar wrapper">
@@ -77,7 +77,7 @@ class NavBar extends React.Component {
               </li>
               <li id="dropdown-nav" className="nav-item">
                 <Link to="#" onClick={this.toggleDropdown.bind(this)}>
-                  <span>User</span> <i className="fas fa-chevron-down" />
+                  <span>{this.props.isAuthenticated ? this.props.user.username : 'ANONYMOUS'}</span> <i className="fas fa-chevron-down" />
                 </Link>
                 {this.state.isDropDownVisible ? (
                   <div className="droppy">
@@ -104,10 +104,17 @@ class NavBar extends React.Component {
 }
 
 NavBar.propTypes = {
-  openModal: PropTypes.func.isRequired
+  openModal: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool.isRequired,
+  user: PropTypes.object.isRequired
 };
 
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+  user: state.auth.user
+})
+
 export default connect(
-  null,
+  mapStateToProps,
   { openModal }
 )(NavBar);

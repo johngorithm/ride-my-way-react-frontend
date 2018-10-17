@@ -17,6 +17,7 @@ export const registerUser = (user) => async dispatch => {
       type: ADD_USER,
       payload: response.data
     });
+    window.location.href = '/home'
   } catch (e) {
     dispatch({
       type: POST_REGISTRATION_ERROR,
@@ -38,6 +39,8 @@ export const loginUser = (user) => async dispatch => {
       type: ADD_USER,
       payload: response.data
     });
+
+    window.location.href = '/home'
   } catch (error) {
     dispatch({
       type: POST_REGISTRATION_ERROR,
