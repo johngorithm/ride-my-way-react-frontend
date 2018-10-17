@@ -45,6 +45,6 @@
   bottom: 0;
 }
 
-.success-message {
+#login-page.content .success-message {
   color: rgb(6, 174, 6);
 }

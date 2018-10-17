@@ -36,14 +36,7 @@ class Register extends React.Component {
     });
   }
 
-  // createError(fieldName, message) {
-  //   const newErrorState = { ...this.state.errors };
-  //   newErrorState[`${fieldName}`] = message;
-  //   this.setState({
-  //     errors: newErrorState
-  //   });
 
-  // }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -57,7 +50,7 @@ class Register extends React.Component {
 
     Object.entries(this.state.userInfo).forEach((field) => {
       const [fieldName, fieldData] = field;
-      // console.log(field)
+
 
       if (fieldData.trim() === '') {
         errors[fieldName] = `${fieldName} is required`;
@@ -66,7 +59,7 @@ class Register extends React.Component {
         errors[fieldName] = 'password must NOT be less than 6 characters';
         isValidData = false;
       } else if (fieldName === 'email') {
-        const regEx = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        const regEx = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         if (!regEx.test(fieldData)) {
           errors[fieldName] = 'email address is invalid';
           isValidData = false;

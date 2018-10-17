@@ -1,6 +1,7 @@
 import "babel-polyfill"
 import axios from 'axios';
 import { ADD_USER, POST_REGISTRATION_ERROR, DELETE_REGISTRATION_ERROR } from 'constants';
+import saveUserInLocalStorage from 'utils/saveToLocalStorage';
 
 const baseUrl = 'https://ride-m-way.herokuapp.com/api/v1';
 
@@ -8,6 +9,9 @@ const baseUrl = 'https://ride-m-way.herokuapp.com/api/v1';
 export const registerUser = (user) => async dispatch => {
   try {
     const response = await axios.post(`${baseUrl}/auth/signup`, user);
+
+    // PERSIST USER DATA WITH LOCALSTORAGE
+    saveUserInLocalStorage(response)
 
     dispatch({
       type: ADD_USER,
@@ -24,12 +28,22 @@ export const registerUser = (user) => async dispatch => {
 };
 
 export const loginUser = (user) => async dispatch => {
-  const response = await axios.post(`${baseUrl}/auth/login`, user);
+  try {
+    const response = await axios.post(`${baseUrl}/auth/login`, user);
 
-  dispatch({
-    type: ADD_USER,
-    payload: response.data
-  });
+    // PERSIST USER DATA WITH LOCALSTORAGE
+    saveUserInLocalStorage(response)
+
+    dispatch({
+      type: ADD_USER,
+      payload: response.data
+    });
+  } catch (error) {
+    dispatch({
+      type: POST_REGISTRATION_ERROR,
+      message: error.response.data.message
+    });
+  }
 
 };
 
