@@ -26,6 +26,7 @@ module.exports = {
     '^actions(.*)$': '<rootDir>/src/store/actions$1',
     '^constants(.*)$': '<rootDir>/src/store/constants$1',
     '^reducers(.*)$': '<rootDir>/src/store/reducers$1',
+    '^utils(.*)$': '<rootDir>/src/utils$1',
   },
   'modulePathIgnorePatterns': ['<rootDir>/src/store'],
   'globals': {
