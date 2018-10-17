@@ -5,7 +5,7 @@ import { ADD_USER, POST_REGISTRATION_ERROR, DELETE_REGISTRATION_ERROR } from 'co
 const initialState = {
   welcomeMessage: null,
   token: null,
-  user: null,
+  user: {},
   isAuthenticated: false,
   errorMessage: ''
 }

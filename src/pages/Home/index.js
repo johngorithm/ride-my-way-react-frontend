@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types'
 
 import { openModal } from 'actions/modalActions';
+import { getRides } from 'actions/rideActions';
 import SubMenu from 'components/SubMenu';
 import CreateRideModal from 'components/CreateRideModal';
 import RideDetailModal from 'components/RideDetailModal';
@@ -11,6 +12,11 @@ import RideCard from 'components/RideCard';
 import './home.css';
 
 class Home extends React.Component {
+
+  componentDidMount() {
+    this.props.getRides();
+  }
+
   render() {
     return (
       <Fragment>
@@ -24,7 +30,7 @@ class Home extends React.Component {
             <div id="loading" className="center-text">
               <p>LOADING ...</p>
             </div>
-            {this.props.rides.map(ride => <RideCard key={ride.id} ride={ride} />)}
+            {this.props.rides.map(ride => <RideCard key={ride.ride_id} ride={ride} />)}
           </div>
         </main>
       </Fragment>
@@ -36,7 +42,8 @@ Home.propTypes = {
   isCreateRideModalOpen: PropTypes.bool.isRequired,
   isRideDetailModalOpen: PropTypes.bool.isRequired,
   openModal: PropTypes.func.isRequired,
-  rides: PropTypes.array.isRequired
+  rides: PropTypes.array.isRequired,
+  getRides: PropTypes.func.isRequired
 }
 
 
@@ -50,5 +57,5 @@ const mapStateToProps = (state) => ({
 
 export default connect(
   mapStateToProps,
-  { openModal }
+  { openModal, getRides }
 )(Home);

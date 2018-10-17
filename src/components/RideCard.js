@@ -17,7 +17,7 @@ class RideCard extends React.Component {
   }
 
   render() {
-    const { time, date, destination, capacity, occupied } = this.props.ride
+    const { time, date, destination, capacity, space_occupied } = this.props.ride
     return (
       <Fragment>
         <div className="co-xl-3 co-lg-4 co-md-6 co-sm-6">
@@ -41,7 +41,7 @@ class RideCard extends React.Component {
             </div>
             <div className="tile-body not-first left-text">
               <p className="left"><span className="badge">{capacity}</span>capacity</p>
-              <p className="right"><span className="badge">{occupied}</span>occupied</p>
+              <p className="right"><span className="badge">{space_occupied}</span>occupied</p>
             </div>
 
             <div className="tile-footer center-text">
