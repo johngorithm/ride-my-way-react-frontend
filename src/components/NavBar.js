@@ -73,7 +73,7 @@ class NavBar extends React.Component {
             <p className="navbar-toggle small" onClick={this.toggleMobileNav.bind(this)}>MENU</p>
             <ul className="nav-items nav-left">
               <li className="nav-item">
-                <img src={logo} alt="logo" /> <Link to="./index">RMW </Link>
+                <img src={logo} alt="logo" /> <Link to="/">RMW </Link>
               </li>
             </ul>
             <ul className="nav-items nav-right" style={this.state.isMobileNavVisible ? { display: 'block' } : null}>

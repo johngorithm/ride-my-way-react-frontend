@@ -147,7 +147,8 @@ class Register extends React.Component {
 Register.propTypes = {
   registerUser: PropTypes.func.isRequired,
   errorMessage: PropTypes.string,
-  deleteAuthErrorMessage: PropTypes.func
+  deleteAuthErrorMessage: PropTypes.func,
+  history: PropTypes.any.isRequired
 }
 
 const mapStateToProps = (state) => ({
