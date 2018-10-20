@@ -16,6 +16,7 @@ import Requests from 'pages/Requests';
 import Profile from 'pages/Profile';
 
 
+
 export class App extends Component {
   render() {
     const loggedIn = true;
@@ -27,7 +28,7 @@ export class App extends Component {
             <NavBar />
             <Switch>
               <Route exact path="/" component={loggedIn ? Landing : null} />
-              <Route exact path="/home" component={Home} />
+              <Route path="/home" component={Home} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/register" component={Register} />
               <Route exact path="/requests" component={Requests} />
