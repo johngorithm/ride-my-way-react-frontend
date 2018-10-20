@@ -5,17 +5,18 @@ import PropTypes from 'prop-types'
 
 
 import { openModal } from 'actions/modalActions';
+import { logOut } from 'actions/authActions';
 import logo from '../static/images/favicon.png';
 
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoggedIn: true,
       isDropDownVisible: false,
       isMobileNavVisible: false
     };
   }
+
 
   toggleDropdown(e) {
     e.preventDefault();
@@ -35,6 +36,13 @@ class NavBar extends React.Component {
     e.preventDefault();
     this.props.openModal('CreateRideModal');
   }
+
+  handleLogOut(e) {
+    e.preventDefault();
+    this.props.logOut();
+    window.location.href = '/'
+  }
+
   render() {
     if (!this.props.isAuthenticated) {
       return (
@@ -87,7 +95,7 @@ class NavBar extends React.Component {
                         Profile
                     </Link>
                       <Link to="/notifications">Notifications</Link>
-                      <Link id="logout" to="#">
+                      <Link id="logout" to="#" onClick={this.handleLogOut.bind(this)}>
                         Logout
                     </Link>
                     </div>
@@ -106,7 +114,8 @@ class NavBar extends React.Component {
 NavBar.propTypes = {
   openModal: PropTypes.func.isRequired,
   isAuthenticated: PropTypes.bool.isRequired,
-  user: PropTypes.object.isRequired
+  user: PropTypes.object,
+  logOut: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -116,5 +125,5 @@ const mapStateToProps = (state) => ({
 
 export default connect(
   mapStateToProps,
-  { openModal }
+  { openModal, logOut }
 )(NavBar);

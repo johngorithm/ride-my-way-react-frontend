@@ -71,7 +71,9 @@ class Register extends React.Component {
       this.setState({
         errors: {}
       })
-      this.props.registerUser(this.state.userInfo);
+      this.props.registerUser(this.state.userInfo).then(() => {
+        this.props.history.push('/home');
+      })
     } else {
       this.setState({
         errors: errors

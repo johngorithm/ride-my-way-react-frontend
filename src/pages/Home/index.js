@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 
 import { openModal } from 'actions/modalActions';
 import { getRides } from 'actions/rideActions';
+import { checkSession } from 'actions/authActions';
 import SubMenu from 'components/SubMenu';
 import CreateRideModal from 'components/CreateRideModal';
 import RideDetailModal from 'components/RideDetailModal';
@@ -12,12 +13,22 @@ import RideCard from 'components/RideCard';
 import './home.css';
 
 class Home extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
-  componentDidMount() {
-    this.props.getRides();
+  componentWillMount() {
+    this.props.checkSession().then(() => {
+      if (!this.props.isAuthenticated) {
+        return this.props.history.push('/login');
+      } else {
+        this.props.getRides();
+      }
+    });
   }
 
   render() {
+
     return (
       <Fragment>
         {this.props.isCreateRideModalOpen ? <CreateRideModal /> : null}
@@ -30,6 +41,7 @@ class Home extends React.Component {
             <div id="loading" className="center-text">
               <p>LOADING ...</p>
             </div>
+
             {this.props.rides.map(ride => <RideCard key={ride.ride_id} ride={ride} />)}
           </div>
         </main>
@@ -43,19 +55,23 @@ Home.propTypes = {
   isRideDetailModalOpen: PropTypes.bool.isRequired,
   openModal: PropTypes.func.isRequired,
   rides: PropTypes.array.isRequired,
-  getRides: PropTypes.func.isRequired
+  getRides: PropTypes.func.isRequired,
+  history: PropTypes.any,
+  isAuthenticated: PropTypes.bool.isRequired,
+  checkSession: PropTypes.func.isRequired
 }
 
 
 const mapStateToProps = (state) => ({
   isCreateRideModalOpen: state.modal.isCreateRideModalOpen,
   isRideDetailModalOpen: state.modal.isRideDetailModalOpen,
-  rides: state.ride.rides
+  rides: state.ride.rides,
+  isAuthenticated: state.auth.isAuthenticated
 })
 
 
 
 export default connect(
   mapStateToProps,
-  { openModal, getRides }
+  { openModal, getRides, checkSession }
 )(Home);

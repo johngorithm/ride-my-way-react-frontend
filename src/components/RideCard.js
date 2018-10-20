@@ -49,7 +49,7 @@ class RideCard extends React.Component {
             </div>
           </div>
         </div>
-      </Fragment >
+      </Fragment>
     );
   }
 }
