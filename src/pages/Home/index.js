@@ -27,6 +27,14 @@ class Home extends React.Component {
     });
   }
 
+  checkOwnership = (ride, user) => {
+    let ownership = '';
+    if (ride.creator_id === user.user_id ) {
+      return ownership = 'yours';
+    }
+    return ownership
+  }
+
   render() {
     const { rides } = this.props;
 
@@ -39,11 +47,15 @@ class Home extends React.Component {
 
         <main className="wrapper dropdown">
           <div className="row" id="rides-loader">
-            
-
-            {rides ? rides.map(ride => <RideCard key={ride.ride_id} ride={ride} />) : (<div id="loading" className="center-text">
+            {
+              rides ? rides.map(ride => {
+                const user = JSON.parse(localStorage.getItem('rmwUser'));
+                const ownership = this.checkOwnership(ride, user);
+                return <RideCard key={ride.ride_id} ride={ride} ownership={ownership} />
+              }) : (<div id="loading" className="center-text">
               <p>LOADING ...</p>
-            </div>)}
+            </div>)
+            }
 
           </div>
         </main>
