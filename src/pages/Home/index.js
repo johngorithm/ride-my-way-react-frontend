@@ -28,6 +28,7 @@ class Home extends React.Component {
   }
 
   render() {
+    const { rides } = this.props;
 
     return (
       <Fragment>
@@ -38,11 +39,12 @@ class Home extends React.Component {
 
         <main className="wrapper dropdown">
           <div className="row" id="rides-loader">
-            <div id="loading" className="center-text">
-              <p>LOADING ...</p>
-            </div>
+            
 
-            {this.props.rides.map(ride => <RideCard key={ride.ride_id} ride={ride} />)}
+            {rides ? rides.map(ride => <RideCard key={ride.ride_id} ride={ride} />) : (<div id="loading" className="center-text">
+              <p>LOADING ...</p>
+            </div>)}
+
           </div>
         </main>
       </Fragment>
