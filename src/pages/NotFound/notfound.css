@@ -1,0 +1,17 @@
+#not-found {
+  position: relative;
+  height: 100%;
+  text-align: center;
+  background: linear-gradient(rgb(10, 122, 235), skyblue);
+}
+
+#not-found h1 {
+  font-size: 50px;
+  margin: 0;
+  color: white;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  transform: translate(0, -50%);
+}
