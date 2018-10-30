@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import PropTypes from 'prop-types'
 
 
@@ -39,8 +40,9 @@ class NavBar extends React.Component {
 
   handleLogOut(e) {
     e.preventDefault();
-    this.props.logOut();
-    window.location.href = '/'
+    this.props.logOut().then(() => {
+      this.props.history.push('/');
+    });
   }
 
   render() {
@@ -100,7 +102,7 @@ class NavBar extends React.Component {
                     </Link>
                     </div>
                   </div>
-                ) : null}
+                ) : null }
 
               </li>
             </ul>
@@ -116,6 +118,7 @@ NavBar.propTypes = {
   isAuthenticated: PropTypes.bool.isRequired,
   user: PropTypes.object,
   logOut: PropTypes.func.isRequired,
+  history: PropTypes.objectOf(PropTypes.any)
 };
 
 const mapStateToProps = (state) => ({
@@ -123,7 +126,7 @@ const mapStateToProps = (state) => ({
   user: state.auth.user
 })
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   { openModal, logOut }
-)(NavBar);
+)(NavBar));

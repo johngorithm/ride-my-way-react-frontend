@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import { openModal } from 'actions/modalActions'
 import { addRide } from 'actions/rideActions'
+import Button from 'components/Atom/Button';
 
 class RideCard extends React.Component {
   constructor(props) {
@@ -57,7 +58,13 @@ class RideCard extends React.Component {
             </div>
 
             <div className="tile-footer center-text">
-              <button onClick={this.handleRideView.bind(this)} data-ownership="{(ownership === 'yours') ? 'true' : 'false'}" data-ride='${JSON.stringify(ride)}' className="button button-blue view">VIEW</button>
+              <Button 
+                onClick={this.handleRideView.bind(this)} 
+                data-ownership="{(ownership === 'yours') ? 'true' : 'false'}" 
+                data-ride='${JSON.stringify(ride)}' 
+                classes="button button-blue view"
+                text="VIEW"
+              />
             </div>
           </div>
         </div>
