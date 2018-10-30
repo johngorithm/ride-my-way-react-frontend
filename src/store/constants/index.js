@@ -1,13 +1,13 @@
 export const GET_RIDES = 'GET_RIDES';
 export const ADD_RIDE = 'ADD_RIDE';
+export const CREATE_RIDE_SUCCESS = 'CREATE_RIDE_SUCCESS';
+export const CREATE_RIDE_STARTED = 'CREATE_RIDE_STARTED';
+export const CREATE_RIDE_FAILED = 'CREATE_RIDE_FAILED';
 
 // MODALS
 export const OPEN_MODAL = 'OPEN_MODAL';
 export const CLOSE_MODAL = 'CLOSE_MODAL';
 
-// export const GET_CONTACT = 'GET_CONTACT';
-
-// export const UPDATE_CONTACT = 'UPDATE_CONTACT';
 
 // AUTH CONSTANTS
 export const ADD_USER = 'ADD_USER';

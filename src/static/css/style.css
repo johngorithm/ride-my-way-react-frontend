@@ -308,6 +308,13 @@ p {
 .modal#add-offer-modal form#create-offer-form [class*="co-"] p.small {
     font-weight: bold;
 }
+.modal#add-offer-modal form#create-offer-form #form-header {
+    border-bottom: 1px solid dodgerblue;
+    margin-bottom: 16px;
+}
+.modal#add-offer-modal form#create-offer-form #form-header h3 {
+    margin: 0;
+}
 .success-message {
     color: rgb(116, 163, 22);
     font-size: 14px;

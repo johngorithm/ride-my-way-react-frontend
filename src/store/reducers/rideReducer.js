@@ -1,11 +1,17 @@
 import {
   GET_RIDES,
-  ADD_RIDE
+  ADD_RIDE,
+  CREATE_RIDE_SUCCESS,
+  CREATE_RIDE_STARTED,
+  CREATE_RIDE_FAILED
 } from 'constants';
 
 const initialState = {
   rides: [],
-  ride: {}
+  ride: {},
+  isLoading: false,
+  failureMessage: '',
+  successMessage: ''
 };
 
 const rideReducer = (state = initialState, action) => {
@@ -20,35 +26,25 @@ const rideReducer = (state = initialState, action) => {
         ...state,
         ride: action.payload
       };
+    case CREATE_RIDE_STARTED:
+      return {
+        ...state,
+        isLoading: true
+      }
+    case CREATE_RIDE_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        rides: [ action.ride, ...state.rides ],
+        successMessage: action.message
+      }
+    case CREATE_RIDE_FAILED:
+      return {
+        ...state,
+        isLoading: false,
+        failureMessage: action.payload
+      }
 
-    // case GET_CONTACT:
-    //   return {
-    //     ...state,
-    //     contact: action.payload
-    //   };
-
-    // case ADD_CONTACT:
-    //   return {
-    //     ...state,
-    //     contacts: [action.payload, ...state.contacts]
-    //   };
-    // case DELETE_CONTACT:
-    //   return {
-    //     ...state,
-    //     contacts: state.contacts.filter(
-    //       contact => action.payload !== contact.id
-    //     )
-    //   };
-    // case UPDATE_CONTACT:
-    //   return {
-    //     ...state,
-    //     contacts: state.contacts.map(
-    //       contact =>
-    //         contact.id === action.payload.id
-    //           ? (contact = action.payload)
-    //           : contact
-    //     )
-    //   };
     default:
       return state;
   }

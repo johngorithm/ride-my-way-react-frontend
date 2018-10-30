@@ -3,7 +3,10 @@ import 'babel-polyfill';
 
 import {
   GET_RIDES,
-  ADD_RIDE
+  ADD_RIDE,
+  CREATE_RIDE_SUCCESS,
+  CREATE_RIDE_STARTED,
+  CREATE_RIDE_FAILED
 } from 'constants';
 import { ADD_AUTH_ERROR_MSG } from '../constants';
 
@@ -27,3 +30,23 @@ export const addRide = (ride) => ({
   type: ADD_RIDE,
   payload: ride
 });
+
+export const createRide = (rideInfo)=> async dispatch => {
+  dispatch({
+    type: CREATE_RIDE_STARTED
+  })
+  try {
+    const res = await axios.post(`https://ride-m-way.herokuapp.com/api/v1/users/rides`, rideInfo, { headers: { 'x-access-token': JSON.parse(localStorage.getItem('token')) } });
+
+    return dispatch({
+      type: CREATE_RIDE_SUCCESS,
+      ride: res.data.ride,
+      message: res.data.message
+    });
+  } catch (error) {
+    return dispatch({
+      type: CREATE_RIDE_FAILED,
+      payload: error.response.data.message
+    });
+  }
+}
