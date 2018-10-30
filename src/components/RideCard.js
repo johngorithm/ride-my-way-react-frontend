@@ -28,13 +28,14 @@ class RideCard extends React.Component {
   }
 
   render() {
+    const { ownership } = this.props;
     const { time, date, destination, capacity, space_occupied } = this.props.ride
     return (
       <Fragment>
         <div className="co-xl-3 co-lg-4 co-md-6 co-sm-6">
           <div className="tile">
             <div className="tile-heading center-text">
-              <p className="${(ownership ? 'tag' : '')}"></p>
+              <p className={(ownership ? 'tag' : '')}>{ownership}</p>
               <h4>RIDE TO<br></br><span>{destination}</span></h4>
             </div>
 
@@ -68,7 +69,8 @@ class RideCard extends React.Component {
 RideCard.propTypes = {
   openModal: PropTypes.func.isRequired,
   ride: PropTypes.object.isRequired,
-  addRide: PropTypes.func.isRequired
+  addRide: PropTypes.func.isRequired,
+  ownership: PropTypes.string
 };
 
 
