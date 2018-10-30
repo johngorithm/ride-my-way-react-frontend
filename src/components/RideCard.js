@@ -16,6 +16,17 @@ class RideCard extends React.Component {
     this.props.openModal('RideDetailModal');
   }
 
+  convertTimeTo12HoursFormat = (time)  => {
+    time = time.toString().match (/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
+  
+    if (time.length > 1) { 
+      time = time.slice (1);
+      time[5] = +time[0] < 12 ? ' AM' : ' PM';
+      time[0] = +time[0] % 12 || 12;
+    }
+    return time.join ('');
+  }
+
   render() {
     const { time, date, destination, capacity, space_occupied } = this.props.ride
     return (
@@ -31,11 +42,11 @@ class RideCard extends React.Component {
               <div className="row">
                 <div className="co-xl-6 co-lg-6 co-md-6 co-sm-6 co-xs-6 center-text border">
                   <p className="data-heading small">Date</p>
-                  <p className="small info">{date}</p>
+                  <p className="small info">{(new Date(date)).toDateString().slice(4, 15)}</p>
                 </div>
                 <div className="co-xl-6 co-lg-6 co-md-6 co-sm-6 co-xs-6 center-text">
                   <p className="data-heading small">Time</p>
-                  <p className="small info">{time}</p>
+                  <p className="small info">{this.convertTimeTo12HoursFormat(time.slice(0, 5))}</p>
                 </div>
               </div>
             </div>
