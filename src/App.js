@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from "react-redux";
 
 import 'static/styles/App.css';
@@ -19,7 +19,6 @@ import Profile from 'pages/Profile';
 
 export class App extends Component {
   render() {
-    const loggedIn = true;
 
     return (
       <Provider store={store}>
@@ -27,7 +26,7 @@ export class App extends Component {
           <div className="App">
             <NavBar />
             <Switch>
-              <Route exact path="/" component={loggedIn ? Landing : null} />
+              <Route exact path="/" component={Landing} />
               <Route path="/home" component={Home} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/register" component={Register} />

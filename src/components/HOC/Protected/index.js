@@ -1,40 +1,15 @@
-// import React from "react";
-// import { connect } from 'react-redux';
-// import { Redirect } from "react-router-dom";
-// import PropTypes from 'prop-types'
 
-// import { checkSession } from 'actions/authActions';
+import React from 'react';
+import { Route, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-// const Protected = ({ component: Component, ...rest }) => {
+const ProtectedRoute = ({ component: Component, isAuthenticated, ...configs }) => (
+  <Route {...configs} render={(props) => (
+      isAuthenticated ? <Component {...props} /> : <Redirect to='/login' />
+  )} />
+);
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated
+});
 
-//   rest.checkSession().then(() => {
-//     if (!rest.isAuthenticated) {
-//       console.log(rest.location);
-//       return (
-//         <Redirect
-//           to={{
-//             pathname: "/login",
-//             state: { from: rest.location }
-//           }}
-//         />
-//       )
-//     }
-//     return true;
-//   });
-
-//   return <Component {...rest} />
-// }
-
-
-// Protected.propTypes = {
-//   isAuthenticated: PropTypes.bool.isRequired
-// }
-
-// const mapStateToProps = state => ({
-//   isAuthenticated: state.auth.isAuthenticated
-// });
-
-// export default connect(
-//   mapStateToProps,
-//   { checkSession }
-// )(Protected);
+export default connect(mapStateToProps)(ProtectedRoute);

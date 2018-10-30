@@ -1,8 +1,10 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import InputGroup from 'components/Atom/InputGroup';
 import { withRouter } from 'react-router';
+
+import InputGroup from 'components/Atom/InputGroup';
+import Button from 'components/Atom/Button';
 
 import { closeModal } from 'actions/modalActions';
 import { createRide } from 'actions/rideActions';
@@ -144,6 +146,12 @@ class CreateRideModal extends React.Component {
                   <button type="button" className="button button-white close" onClick={this.closeModal.bind(this)}>
                     CLOSE
                   </button>
+                  <Button 
+                    text="CLOSE" 
+                    type="button" 
+                    onClick={this.closeModal.bind(this)}
+                    classes="button button-white close"
+                  />
                   {" "}
                   <button type="submit" style={ isLoading ? {opacity: 0.4, cursor: 'forbidden'} : null} className="button button-blue create" disabled={ isLoading ? true : false}>
                     CREATE OFFER
