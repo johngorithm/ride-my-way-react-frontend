@@ -3,12 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "homepage": "https://johngorithm.github.io/ride-my-way-react-frontend",
   "scripts": {
     "start": "webpack-dev-server --mode development --open --hot",
     "build": "webpack --mode production",
     "test": "jest --no-cache --verbose",
     "test:watch": "jest --watchAll --verbose",
-    "test:coverage": "jest --verbose --coverage"
+    "test:coverage": "jest --verbose --coverage",
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "keywords": [],
   "author": "",
@@ -50,6 +52,7 @@
     "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
     "file-loader": "^2.0.0",
+    "gh-pages": "^2.0.1",
     "image-webpack-loader": "^4.3.1",
     "prop-types": "^15.6.2",
     "react": "^16.4.2",
