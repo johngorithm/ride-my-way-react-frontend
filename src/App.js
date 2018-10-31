@@ -1,5 +1,8 @@
+
+
 import React, { Component, Fragment } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+
 
 import 'static/styles/App.css';
 import 'static/css/style.css';
