@@ -61,30 +61,30 @@ export const deleteAuthErrorMessage = () => {
   }
 }
 
-export const logOut = () => disptch => {
-  localStorage.removeItem('rmwUser');
-  localStorage.removeItem('token');
+export const logOut = () => async disptch => {
+  await localStorage.removeItem('rmwUser');
+  await localStorage.removeItem('token');
 
-  disptch({
+  return disptch({
     type: LOG_OUT
   })
 
 }
 
-export const checkSession = () => async dispatch => {
-  const user = await JSON.parse(localStorage.getItem('rmwUser'));
-  const token = await JSON.parse(localStorage.getItem('token'));
+export const checkSession = () =>  dispatch => {
+  const user =  JSON.parse(localStorage.getItem('rmwUser'));
+  const token =  JSON.parse(localStorage.getItem('token'));
 
   if (!user && !token) {
-    dispatch({
+    return dispatch({
       type: LOG_OUT
     })
-  } else {
-    dispatch({
-      type: ADD_USER,
-      payload: {
-        user
-      }
-    });
   }
+  
+  return dispatch({
+    type: ADD_USER,
+    payload: {
+      user
+    }
+  });
 }

@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types'
 
+
 import { openModal } from 'actions/modalActions';
 import { getRides } from 'actions/rideActions';
 import { checkSession } from 'actions/authActions';
@@ -17,14 +18,8 @@ class Home extends React.Component {
     super(props);
   }
 
-  componentWillMount() {
-    this.props.checkSession().then(() => {
-      if (!this.props.isAuthenticated) {
-        return this.props.history.push('/login');
-      } else {
-        this.props.getRides();
-      }
-    });
+  componentDidMount() {
+    this.props.getRides();
   }
 
   checkOwnership = (ride, user) => {

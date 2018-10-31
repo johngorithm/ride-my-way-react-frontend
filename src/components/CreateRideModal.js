@@ -143,9 +143,6 @@ class CreateRideModal extends React.Component {
                 />
 
                 <div className="co-xl-12 co-lg-12 co-md-12 co-sm-12 right-text">
-                  <button type="button" className="button button-white close" onClick={this.closeModal.bind(this)}>
-                    CLOSE
-                  </button>
                   <Button 
                     text="CLOSE" 
                     type="button" 
@@ -153,9 +150,14 @@ class CreateRideModal extends React.Component {
                     classes="button button-white close"
                   />
                   {" "}
-                  <button type="submit" style={ isLoading ? {opacity: 0.4, cursor: 'forbidden'} : null} className="button button-blue create" disabled={ isLoading ? true : false}>
-                    CREATE OFFER
-                  </button>
+
+                  <Button
+                    text="CREATE OFFER"
+                    type="submit"
+                    style={ isLoading ? {opacity: 0.4, cursor: 'forbidden'} : null}
+                    classes="button button-blue create" 
+                    disabled={ isLoading ? true : false}
+                  />
                 </div>
               </div>
             </form>

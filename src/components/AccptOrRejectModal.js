@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import Button from 'components/Atom/Button';
 
 class AcceptOrRejectModal extends React.Component {
   constructor(props) {
@@ -21,13 +22,16 @@ class AcceptOrRejectModal extends React.Component {
               </div>
 
               <div className="tile-footer center-text">
-                <button className="button button-blue close">CLOSE</button>
-                <button
+                <Button 
+                  classes="button button-blue close"
+                  text="CLOSE" 
+                />
+                <Button
                   // onClick="acceptOrRejectRequest(this)"
-                  className="button button-white yes-btn"
-                >
-                  YES
-                </button>
+                  classes="button button-white yes-btn"
+                
+                  text = "YES"
+                />
               </div>
             </div>
           </div>
