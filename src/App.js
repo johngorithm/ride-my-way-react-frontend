@@ -1,5 +1,8 @@
+
 import React, { Component, Fragment } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Provider } from "react-redux";
+
 
 import 'static/styles/App.css';
 import 'static/css/style.css';
