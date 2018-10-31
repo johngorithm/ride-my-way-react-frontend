@@ -1,7 +1,7 @@
 
+
 import React, { Component, Fragment } from 'react';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
-
 
 
 import 'static/styles/App.css';
