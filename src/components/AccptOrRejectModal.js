@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import Button from 'components/Atom/Button';
 
-class AcceptOrRejectModal extends React.Component {
+export class AcceptOrRejectModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};

@@ -13,7 +13,7 @@ import RideCard from 'components/RideCard';
 
 import './home.css';
 
-class Home extends React.Component {
+export class Home extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -43,7 +43,7 @@ class Home extends React.Component {
         <main className="wrapper dropdown">
           <div className="row" id="rides-loader">
             {
-              rides ? rides.map(ride => {
+              rides.length > 0 ? rides.map(ride => {
                 const user = JSON.parse(localStorage.getItem('rmwUser'));
                 const ownership = this.checkOwnership(ride, user);
                 return <RideCard key={ride.ride_id} ride={ride} ownership={ownership} />

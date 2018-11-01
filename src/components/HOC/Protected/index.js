@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 
 
-const Protected= ({ component: Component, isAuthenticated, ...configs }) => {
+export const Protected = ({ component: Component, isAuthenticated, ...configs }) => {
   return (<Route {...configs} render={(props) => (
       isAuthenticated ? <Component {...props} /> : <Redirect to='/login' />
   )} 
