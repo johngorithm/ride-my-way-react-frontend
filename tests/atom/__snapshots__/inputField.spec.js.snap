@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Tests it matches snapshot 1`] = `
+<Fragment>
+  <input
+    label="Password"
+    name="password"
+    onChange={[MockFunction]}
+    type="text"
+    value="fd89ya8sdf"
+  />
+</Fragment>
+`;

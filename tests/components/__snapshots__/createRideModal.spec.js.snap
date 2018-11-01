@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ACCEPT OF REJECT RIDE TESTS should match snapshot 1`] = `
+<Fragment>
+  <div
+    className="modal"
+    id="add-offer-modal"
+  >
+    <div
+      className="modal-content animate"
+    >
+      <form
+        id="create-offer-form"
+        onSubmit={[Function]}
+      >
+        <div
+          className="co-xl-12 co-lg-12 co-md-12 co-sm-12"
+          id="form-header"
+        >
+          <h3
+            className="center-text"
+            id="form-header-title"
+          >
+            OFFER A RIDE
+          </h3>
+        </div>
+        <div
+          className="row"
+        >
+          <InputGroup
+            classes="co-xl-12 co-lg-12 co-md-12 co-sm-12"
+            error=""
+            label="Destination"
+            name="destination"
+            onChange={[Function]}
+            placeholder="where are you goin?"
+            type="text"
+            value=""
+          />
+          <InputGroup
+            classes="co-xl-6 co-lg-6 co-md-6 co-sm-6"
+            error=""
+            label="Date"
+            name="date"
+            onChange={[Function]}
+            type="date"
+            value=""
+          />
+          <InputGroup
+            classes="co-xl-6 co-lg-6 co-md-6 co-sm-6"
+            error=""
+            label="Time"
+            name="time"
+            onChange={[Function]}
+            type="time"
+            value=""
+          />
+          <InputGroup
+            classes="co-xl-12 co-lg-12 co-md-12 co-sm-12"
+            error=""
+            label="Capacity"
+            max="100"
+            name="capacity"
+            onChange={[Function]}
+            placeholder="max: 100"
+            type="number"
+            value=""
+          />
+          <InputGroup
+            classes="co-xl-12 co-lg-12 co-md-12 co-sm-12"
+            error=""
+            label="Takeoff Venue"
+            name="takeOffVenue"
+            onChange={[Function]}
+            placeholder="where will your journey start?"
+            type="text"
+            value=""
+          />
+          <div
+            className="co-xl-12 co-lg-12 co-md-12 co-sm-12 right-text"
+          >
+            <Button
+              classes="button button-white close"
+              onClick={[Function]}
+              text="CLOSE"
+              type="button"
+            />
+             
+            <Button
+              classes="button button-blue create"
+              disabled={false}
+              style={null}
+              text="CREATE OFFER"
+              type="submit"
+            />
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</Fragment>
+`;

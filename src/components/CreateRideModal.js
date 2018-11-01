@@ -10,7 +10,7 @@ import { closeModal } from 'actions/modalActions';
 import { createRide } from 'actions/rideActions';
 import validateRide from 'utils/validateRide'
 
-class CreateRideModal extends React.Component {
+export class CreateRideModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

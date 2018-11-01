@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Tests it does not render error message when error is undefined 1`] = `
+<Fragment>
+  <div>
+    <p
+      className="smaller"
+    >
+       
+    </p>
+    <InputField
+      lable="Name"
+    />
+  </div>
+</Fragment>
+`;
+
+exports[`Button Tests it matches snapshot 1`] = `
+<Fragment>
+  <div>
+    <p
+      className="smaller"
+    >
+       
+      <span
+        className="error-message"
+      >
+        this field is required
+      </span>
+    </p>
+    <InputField
+      lable="Password"
+      name="password"
+      onChange={[MockFunction]}
+      type="text"
+      value="fd89ya8sdf"
+    />
+  </div>
+</Fragment>
+`;
