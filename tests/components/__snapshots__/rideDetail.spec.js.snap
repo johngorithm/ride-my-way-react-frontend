@@ -1,0 +1,128 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ACCEPT OF REJECT RIDE TESTS should match snapshot 1`] = `
+<Fragment>
+  <div
+    className="modal"
+    id="detail-modal"
+  >
+    <div
+      className="modal-content animate"
+    >
+      <div
+        className="tile"
+      >
+        <div
+          className="tile-heading center-text"
+        >
+          <h4>
+            RIDE TO 
+            <span>
+              Ojo
+            </span>
+          </h4>
+          <p
+            className="smaller"
+          >
+            <strong>
+              from: 
+            </strong>
+            <span />
+          </p>
+          <span
+            className="message smaller"
+          />
+        </div>
+        <div
+          className="tile-body"
+        >
+          <div
+            className="row"
+          >
+            <div
+              className="co-xl-6 co-lg-6 co-md-6 co-sm-6 co-xs-6 center-text border"
+            >
+              <p
+                className="data-heading small"
+              >
+                Date
+              </p>
+              <p
+                className="small date"
+              >
+                Oct 20 2018
+              </p>
+            </div>
+            <div
+              className="co-xl-6 co-lg-6 co-md-6 co-sm-6 co-xs-6 center-text"
+            >
+              <p
+                className="data-heading small"
+              >
+                Time
+              </p>
+              <p
+                className="small time"
+              >
+                12:00 PM
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          className="tile-body not-first center-text"
+          id="capacity-info"
+        >
+          <p
+            className="left"
+          >
+            capacity
+            <span
+              className="badge"
+              id="capacity"
+            >
+              4
+            </span>
+          </p>
+          <p
+            className="right"
+          >
+            occupied
+            <span
+              className="badge"
+              id="space-occupied"
+            >
+               
+            </span>
+          </p>
+        </div>
+        <div
+          className="tile-body driver center-text padded"
+        >
+          <p
+            className="data-heading small"
+          >
+            Driver
+          </p>
+          <p
+            className="small driver"
+          />
+        </div>
+        <div
+          className="tile-footer center-text"
+        >
+          <Button
+            classes="button button-blue close"
+            onClick={[Function]}
+            text="CLOSE"
+          />
+          <Button
+            classes="button button-white join"
+            text="JOIN"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</Fragment>
+`;

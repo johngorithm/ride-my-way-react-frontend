@@ -1,10 +1,9 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types'
 
 
-import { loginUser, deleteAuthErrorMessage } from 'actions/authActions';
+import { loginUser } from 'actions/authActions';
 
 import './login.css';
 
@@ -32,10 +31,6 @@ class Login extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-
-    // CLEAR ERROR MESSAGE
-    // this.props.deleteAuthErrorMessage();
-
 
     const errors = {};
     let isValidData = true;
@@ -109,17 +104,10 @@ class Login extends React.Component {
 
 Login.propTypes = {
   loginUser: PropTypes.func.isRequired,
-  deleteAuthErrorMessage: PropTypes.func,
   history: PropTypes.any.isRequired,
-  // location: PropTypes.any,
-  // isAuthenticated: PropTypes.bool.isRequired
 }
-
-// const mapStateToProps = state => ({
-//   isAuthenticated: state.auth.isAuthenticated
-// });
 
 export default connect(
   null,
-  { loginUser, deleteAuthErrorMessage }
+  { loginUser }
 )(Login);

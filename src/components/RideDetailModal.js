@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { closeModal } from 'actions/modalActions';
+import Button from 'components/Atom/Button';
 
-class RideDetailModal extends React.Component {
+export class RideDetailModal extends React.Component {
 
   state = {};
 
@@ -12,7 +13,7 @@ class RideDetailModal extends React.Component {
   convertTimeTo12HoursFormat = (time)  => {
     time = time.toString().match (/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
   
-    if (time.length > 1) { 
+    if (time.length > 1) {
       time = time.slice (1);
       time[5] = +time[0] < 12 ? ' AM' : ' PM';
       time[0] = +time[0] % 12 || 12;
@@ -67,13 +68,16 @@ class RideDetailModal extends React.Component {
               </div>
 
               <div className="tile-footer center-text">
-                <button onClick={() => this.props.closeModal('RideDetailModal')} className="button button-blue close">CLOSE</button>
-                <button
+                <Button 
+                  onClick={() => this.props.closeModal('RideDetailModal')} 
+                  classes="button button-blue close" 
+                  text="CLOSE"
+                />
+                <Button
                   //onClick="joinRide(this)"
-                  className="button button-white join"
-                >
-                  JOIN
-                </button>
+                  classes="button button-white join"
+                  text="JOIN"
+                />
               </div>
             </div>
           </div>

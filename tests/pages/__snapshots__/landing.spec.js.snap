@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home Page Tests should match snapshot 1`] = `
+<main
+  className="dropdown content"
+  id="landing-page"
+>
+  <div
+    className="overlay"
+  />
+  <div
+    className="wrapper"
+  >
+    <h2
+      className="welcome-title"
+    >
+      Welcome
+    </h2>
+    <p
+      className="welcome-message"
+    >
+      Ride My Way is an app that lets you find a ride going your way or Create one and get others to their destination
+    </p>
+    <Link
+      replace={false}
+      to="/login"
+    >
+      <button
+        className="button button-blue"
+      >
+        GET STARTED
+      </button>
+    </Link>
+  </div>
+</main>
+`;

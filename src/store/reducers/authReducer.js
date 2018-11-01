@@ -1,20 +1,16 @@
-
-
 import {
-  ADD_USER,
-  ADD_AUTH_ERROR_MSG,
-  DELETE_AUTH_ERROR_MSG,
+  AUTH_STARTED,
+  AUTH_SUCCESS,
+  AUTH_FAILED,
   LOG_OUT,
-  ADD_AUTH_SUCCESS_MSG
+  ADD_USER
 } from 'constants'
 
 
 const initialState = {
-  welcomeMessage: '',
-  token: null,
   user: {},
   isAuthenticated: false,
-  errorMessage: ''
+  authIsLoading: false
 }
 
 const authReducer = (state = initialState, action) => {
@@ -23,30 +19,29 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
         isAuthenticated: true,
-        user: action.payload.user
+        user: action.user
       }
-    case ADD_AUTH_SUCCESS_MSG:
+    case AUTH_STARTED:
       return {
         ...state,
-        welcomeMessage: action.payload.message
+        authIsLoading: true
       }
-
-    case ADD_AUTH_ERROR_MSG:
+    case AUTH_SUCCESS:
       return {
         ...state,
-        errorMessage: action.message
+        isAuthenticated: true,
+        user: action.user,
+        authIsLoading: true
       }
-
-    case DELETE_AUTH_ERROR_MSG:
+    case AUTH_FAILED:
       return {
         ...state,
-        errorMessage: ''
+        authIsLoading: false
       }
 
     case LOG_OUT:
       return {
         ...state,
-        token: null,
         user: {},
         isAuthenticated: false
       }

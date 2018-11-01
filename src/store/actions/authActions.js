@@ -1,6 +1,9 @@
 import "babel-polyfill"
 import axios from 'axios';
-import { ADD_USER, ADD_AUTH_SUCCESS_MSG, ADD_AUTH_ERROR_MSG, DELETE_AUTH_ERROR_MSG, LOG_OUT } from 'constants';
+import toastr from 'toastr';
+
+
+import { ADD_USER, AUTH_STARTED, AUTH_SUCCESS, AUTH_FAILED, LOG_OUT } from 'constants';
 import saveUserInLocalStorage from '../../utils/saveToLocalStorage';
 
 
@@ -9,57 +12,56 @@ const baseUrl = 'https://ride-m-way.herokuapp.com/api/v1';
 
 
 export const registerUser = (user) => async dispatch => {
+  dispatch({
+    type: AUTH_STARTED
+  })
   try {
     const response = await axios.post(`${baseUrl}/auth/signup`, user);
 
     // PERSIST USER DATA WITH LOCALSTORAGE
     saveUserInLocalStorage(response)
+    toastr.success('Your successfully created');
 
     dispatch({
-      type: ADD_USER,
-      payload: response.data
-    });
-
-    dispatch({
-      type: ADD_AUTH_SUCCESS_MSG,
-      payload: response.data.message
+      type: AUTH_SUCCESS,
+      user: response.data.user
     })
 
-  } catch (event) {
+  } catch (error) {
+    toastr.error(error.response.data.message);
     dispatch({
-      type: ADD_AUTH_ERROR_MSG,
-      message: event.response.data.message
+      type: AUTH_FAILED
     });
-
   }
 
 };
 
 export const loginUser = (user) => async dispatch => {
+  dispatch({
+    type: AUTH_STARTED
+  })
+
   try {
     const response = await axios.post(`${baseUrl}/auth/login`, user);
-
     // PERSIST USER DATA WITH LOCALSTORAGE
     saveUserInLocalStorage(response)
-    dispatch({
-      type: ADD_USER,
-      payload: response.data
-    });
+    
+    toastr.success(response.data.message)
+
+    return dispatch({
+      type: AUTH_SUCCESS,
+      user: response.data.user
+    })
+
 
   } catch (error) {
-    dispatch({
-      type: ADD_AUTH_ERROR_MSG,
-      message: error.response.data.message
+    toastr.error(error.response.data.message);
+    return dispatch({
+      type: AUTH_FAILED
     });
   }
 
 };
-
-export const deleteAuthErrorMessage = () => {
-  return {
-    type: DELETE_AUTH_ERROR_MSG
-  }
-}
 
 export const logOut = () => async disptch => {
   await localStorage.removeItem('rmwUser');
@@ -83,8 +85,6 @@ export const checkSession = () =>  dispatch => {
   
   return dispatch({
     type: ADD_USER,
-    payload: {
-      user
-    }
+    user: user
   });
 }

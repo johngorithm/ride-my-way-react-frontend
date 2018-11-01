@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NAVBAR TEST should match snapshot 1`] = `
+<nav
+  className="navigation"
+>
+  <div
+    className="navbar wrapper"
+  >
+    <p
+      className="navbar-toggle small"
+      onClick={[Function]}
+    >
+      MENU
+    </p>
+    <ul
+      className="nav-items nav-left"
+    >
+      <li
+        className="nav-item"
+      >
+        <img
+          alt="logo"
+          src="test-file-stub"
+        />
+        <Link
+          onClick={[Function]}
+          replace={false}
+          to="/"
+        >
+          RMW
+        </Link>
+      </li>
+    </ul>
+    <ul
+      className="nav-items nav-right"
+      style={null}
+    >
+      <li
+        className="nav-item"
+      >
+        <Link
+          onClick={[Function]}
+          replace={false}
+          to="/login"
+        >
+          LOGIN
+        </Link>
+      </li>
+      <li
+        className="nav-item"
+      >
+        <Link
+          onClick={[Function]}
+          replace={false}
+          to="/register"
+        >
+          REGISTER
+        </Link>
+      </li>
+    </ul>
+  </div>
+</nav>
+`;

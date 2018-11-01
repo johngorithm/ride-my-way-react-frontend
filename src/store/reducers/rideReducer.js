@@ -1,5 +1,7 @@
 import {
-  GET_RIDES,
+  GET_RIDES_SUCCESS,
+  GET_RIDES_STARTED,
+  GET_RIDES_FAILED,
   ADD_RIDE,
   CREATE_RIDE_SUCCESS,
   CREATE_RIDE_STARTED,
@@ -10,21 +12,32 @@ const initialState = {
   rides: [],
   ride: {},
   isLoading: false,
+  successMessage: '',
   failureMessage: '',
-  successMessage: ''
 };
 
 const rideReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_RIDES:
+    case GET_RIDES_STARTED:
       return {
         ...state,
-        rides: action.payload
+        isLoading: true,
+      }
+    case GET_RIDES_SUCCESS:
+      return {
+        ...state,
+        rides: action.rides,
+        isLoading: false
+      };
+    case GET_RIDES_FAILED:
+      return {
+        ...state,
+        isLoading: false
       };
     case ADD_RIDE:
       return {
         ...state,
-        ride: action.payload
+        ride: action.ride
       };
     case CREATE_RIDE_STARTED:
       return {
@@ -42,7 +55,7 @@ const rideReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        failureMessage: action.payload
+        failureMessage: action.message
       }
 
     default:

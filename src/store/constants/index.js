@@ -1,4 +1,6 @@
-export const GET_RIDES = 'GET_RIDES';
+export const GET_RIDES_SUCCESS = 'GET_RIDES_SUCCESS';
+export const GET_RIDES_STARTED = 'GET_RIDES_STARTED';
+export const GET_RIDES_FAILED = 'GET_RIDES_FAILED';
 export const ADD_RIDE = 'ADD_RIDE';
 export const CREATE_RIDE_SUCCESS = 'CREATE_RIDE_SUCCESS';
 export const CREATE_RIDE_STARTED = 'CREATE_RIDE_STARTED';
@@ -10,10 +12,9 @@ export const CLOSE_MODAL = 'CLOSE_MODAL';
 
 
 // AUTH CONSTANTS
-export const ADD_USER = 'ADD_USER';
 export const GET_USER = 'GET_USER';
+export const ADD_USER = 'ADD_USER';
 export const LOG_OUT = 'LOG_OUT';
-export const CHECK_SESSION = 'CHECK_SESSION';
-export const ADD_AUTH_ERROR_MSG = 'ADD_AUTH_ERROR_MSG';
-export const DELETE_AUTH_ERROR_MSG = 'DELETE_AUTH_ERROR_MSG';
-export const ADD_AUTH_SUCCESS_MSG = 'ADD_AUTH_SUCCESS_MSG';
+export const AUTH_STARTED = 'AUTH_STARTED';
+export const AUTH_SUCCESS = 'AUTH_SUCCESS';
+export const AUTH_FAILED = 'AUTH_FAILED';

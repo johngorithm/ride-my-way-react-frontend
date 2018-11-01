@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SUBMENU COMPONENT TESTS matches snapshot 1`] = `
+<Fragment>
+  <div
+    className="submenu row"
+  >
+    <Link
+      className="link active co-xl-6 co-lg-6 co-md-6 co-sm-6 co-xs-6 center-text border"
+      replace={false}
+      to="/home"
+    >
+      RIDE OFFERS
+    </Link>
+    <Link
+      className="co-xl-6 co-lg-6 co-md-6 co-sm-6 co-xs-6 center-text"
+      replace={false}
+      to="/requests"
+    >
+      MY REQUESTS
+    </Link>
+  </div>
+</Fragment>
+`;

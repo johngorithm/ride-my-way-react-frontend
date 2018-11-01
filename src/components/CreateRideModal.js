@@ -10,7 +10,7 @@ import { closeModal } from 'actions/modalActions';
 import { createRide } from 'actions/rideActions';
 import validateRide from 'utils/validateRide'
 
-class CreateRideModal extends React.Component {
+export class CreateRideModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -64,6 +64,7 @@ class CreateRideModal extends React.Component {
         }
       })
       return this.props.createRide(rideInfo).then(() => {
+        this.props.closeModal(this.props.modalName)
         this.props.history.push('/home');
       })
     } else {
@@ -185,7 +186,8 @@ CreateRideModal.propTypes = {
 
 const mapStateToProps = (state) => ({
   isCreateRideModalOpen: state.modal.isCreateRideModalOpen,
-  isLoading: state.ride.isLoading
+  isLoading: state.ride.isLoading,
+  succesMessge: state.ride.successMessge
 });
 
 export default withRouter(connect(
