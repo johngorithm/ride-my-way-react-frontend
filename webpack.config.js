@@ -12,7 +12,7 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
     chunkFilename: '[id].js',
-    publicPath: '/'
+    publicPath: './'
   },
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
