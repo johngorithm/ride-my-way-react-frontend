@@ -22,7 +22,7 @@ class App extends Component {
   render() {
     return (
       <Fragment>
-        <Router basename={process.env.PUBLIC_URL}>
+        <Router>
           <div className="App">
             <NavBar />
             <Switch>
