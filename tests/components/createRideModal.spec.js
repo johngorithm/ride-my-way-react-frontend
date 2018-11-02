@@ -4,6 +4,7 @@ import { shallow } from 'enzyme';
 
 import { CreateRideModal } from 'components/CreateRideModal';
 
+
 const mockFn = jest.fn();
 
 
@@ -14,7 +15,9 @@ const props = {
   validateRide: jest.fn(() => ({ isValidData: true })),
   succesMessage: ''
 }
-describe('ACCEPT OF REJECT RIDE TESTS', () => {
+
+
+describe('CREATE RIDE MODAL', () => {
   const wrapper = shallow(<CreateRideModal {...props} />);
 
   test('should contain the following elements', () => {
