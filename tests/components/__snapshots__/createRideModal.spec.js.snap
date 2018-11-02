@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ACCEPT OF REJECT RIDE TESTS should match snapshot 1`] = `
+exports[`CREATE RIDE MODAL should match snapshot 1`] = `
 <Fragment>
   <div
     className="modal"

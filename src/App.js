@@ -1,6 +1,6 @@
 
 import React, { Component, Fragment } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 
 
 import 'static/styles/App.css';
@@ -22,7 +22,7 @@ class App extends Component {
   render() {
     return (
       <Fragment>
-        <Router basename={process.env.PUBLIC_URL}>
+        <Router>
           <div className="App">
             <NavBar />
             <Switch>
