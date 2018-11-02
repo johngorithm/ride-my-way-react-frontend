@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types'
 
 
-import { loginUser, deleteAuthErrorMessage } from 'actions/authActions';
+import { loginUser } from 'actions/authActions';
 
 import './login.css';
 
@@ -104,11 +104,10 @@ class Login extends React.Component {
 
 Login.propTypes = {
   loginUser: PropTypes.func.isRequired,
-  deleteAuthErrorMessage: PropTypes.func,
   history: PropTypes.any.isRequired,
 }
 
 export default connect(
   null,
-  { loginUser, deleteAuthErrorMessage }
+  { loginUser }
 )(Login);

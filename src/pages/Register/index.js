@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 
 
-import { registerUser, deleteAuthErrorMessage } from 'actions/authActions';
+import { registerUser } from 'actions/authActions';
 import './register.css';
 
 class Register extends React.Component {
@@ -40,10 +40,6 @@ class Register extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-
-    // CLEAR ERROR MESSAGE
-    this.props.deleteAuthErrorMessage();
-
 
     const errors = {};
     let isValidData = true;
@@ -89,8 +85,6 @@ class Register extends React.Component {
           <div className="wrapper">
             <h3>JOIN US</h3>
             <form id="register-form" onSubmit={this.handleSubmit.bind(this)}>
-              <p className="error-message center-text small" >{this.props.errorMessage ? this.props.errorMessage : null}</p>
-              <p className="success-message center-text small" />
               <br />
 
               <div className="row">
@@ -146,16 +140,12 @@ class Register extends React.Component {
 
 Register.propTypes = {
   registerUser: PropTypes.func.isRequired,
-  errorMessage: PropTypes.string,
-  deleteAuthErrorMessage: PropTypes.func,
   history: PropTypes.any.isRequired
 }
 
-const mapStateToProps = (state) => ({
-  errorMessage: state.auth.errorMessage
-});
+
 
 export default connect(
-  mapStateToProps,
-  { registerUser, deleteAuthErrorMessage }
+  null,
+  { registerUser }
 )(Register);

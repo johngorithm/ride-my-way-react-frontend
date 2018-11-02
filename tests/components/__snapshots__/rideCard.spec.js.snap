@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ACCEPT OF REJECT RIDE TESTS should match snapshot 1`] = `
+<Fragment>
+  <div
+    className="co-xl-3 co-lg-4 co-md-6 co-sm-6"
+  >
+    <div
+      className="tile"
+    >
+      <div
+        className="tile-heading center-text"
+      >
+        <p
+          className=""
+        />
+        <h4>
+          RIDE TO
+          <br />
+          <span>
+            Ojo
+          </span>
+        </h4>
+      </div>
+      <div
+        className="tile-body"
+      >
+        <div
+          className="row"
+        >
+          <div
+            className="co-xl-6 co-lg-6 co-md-6 co-sm-6 co-xs-6 center-text border"
+          >
+            <p
+              className="data-heading small"
+            >
+              Date
+            </p>
+            <p
+              className="small info"
+            >
+              Oct 20 2018
+            </p>
+          </div>
+          <div
+            className="co-xl-6 co-lg-6 co-md-6 co-sm-6 co-xs-6 center-text"
+          >
+            <p
+              className="data-heading small"
+            >
+              Time
+            </p>
+            <p
+              className="small info"
+            >
+              12:00 PM
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        className="tile-body not-first left-text"
+      >
+        <p
+          className="left"
+        >
+          <span
+            className="badge"
+          >
+            4
+          </span>
+          capacity
+        </p>
+        <p
+          className="right"
+        >
+          <span
+            className="badge"
+          >
+            2
+          </span>
+          occupied
+        </p>
+      </div>
+      <div
+        className="tile-footer center-text"
+      >
+        <Button
+          classes="button button-blue view"
+          data-ownership="{(ownership === 'yours') ? 'true' : 'false'}"
+          data-ride="\${JSON.stringify(ride)}"
+          onClick={[Function]}
+          text="VIEW"
+        />
+      </div>
+    </div>
+  </div>
+</Fragment>
+`;

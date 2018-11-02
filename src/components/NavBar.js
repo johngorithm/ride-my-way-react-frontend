@@ -9,13 +9,22 @@ import { openModal } from 'actions/modalActions';
 import { logOut } from 'actions/authActions';
 import logo from '../static/images/favicon.png';
 
-class NavBar extends React.Component {
+export class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       isDropDownVisible: false,
       isMobileNavVisible: false
     };
+  }
+
+  changeLink(link, event){
+    event.preventDefault();
+    this.setState({
+      isDropDownVisible: false,
+      isMobileNavVisible: false
+    });
+    this.props.history.push(link);
   }
 
 
@@ -35,11 +44,19 @@ class NavBar extends React.Component {
 
   openCreateRideModal(e) {
     e.preventDefault();
+    this.setState({
+      isDropDownVisible: false,
+      isMobileNavVisible: false
+    });
     this.props.openModal('CreateRideModal');
   }
 
   handleLogOut(e) {
     e.preventDefault();
+    this.setState({
+      isDropDownVisible: false,
+      isMobileNavVisible: false
+    });
     this.props.logOut().then(() => {
       this.props.history.push('/');
     });
@@ -54,15 +71,15 @@ class NavBar extends React.Component {
             <ul className="nav-items nav-left">
               <li className="nav-item">
                 <img src={logo} alt="logo" />
-                <Link to="/">RMW</Link>
+                <Link onClick={this.changeLink.bind(this, '/')}  to="/">RMW</Link>
               </li>
             </ul>
             <ul className="nav-items nav-right" style={this.state.isMobileNavVisible ? { display: 'block' } : null} >
               <li className="nav-item">
-                <Link to="/login">LOGIN</Link>
+                <Link onClick={this.changeLink.bind(this, '/login')}  to="/login">LOGIN</Link>
               </li>
               <li className="nav-item">
-                <Link to="/register">REGISTER</Link>
+                <Link onClick={this.changeLink.bind(this, '/register')}  to="/register">REGISTER</Link>
               </li>
             </ul>
           </div>
@@ -72,31 +89,31 @@ class NavBar extends React.Component {
       return (
         <nav className="navigation">
           <div className="navbar wrapper">
-            <p className="navbar-toggle small" onClick={this.toggleMobileNav.bind(this)}>MENU</p>
+            <p id="toggle-mobile-nav" className="navbar-toggle small" onClick={this.toggleMobileNav.bind(this)}>MENU</p>
             <ul className="nav-items nav-left">
               <li className="nav-item">
-                <img src={logo} alt="logo" /> <Link to="/">RMW </Link>
+                <img src={logo} alt="logo" /> <Link onClick={this.changeLink.bind(this, '/')}  to="/">RMW </Link>
               </li>
             </ul>
             <ul className="nav-items nav-right" style={this.state.isMobileNavVisible ? { display: 'block' } : null}>
               <li className="nav-item">
-                <Link to="/home">Dashboard</Link>
+                <Link onClick={this.changeLink.bind(this, '/home')}  to="/home">Dashboard</Link>
               </li>
               <li id="offer-ride-btn" className="nav-item">
-                <Link to="#" onClick={this.openCreateRideModal.bind(this)}>Offer A Ride</Link>
+                <Link id="open-create-ride-modal" to="#" onClick={this.openCreateRideModal.bind(this)}>Offer A Ride</Link>
               </li>
               <li id="dropdown-nav" className="nav-item">
-                <Link to="#" onClick={this.toggleDropdown.bind(this)}>
-                  <span>{this.props.isAuthenticated ? this.props.user.username : 'ANONYMOUS'}</span> <i className="fas fa-chevron-down" />
+                <Link id="dropdown-toggle" to="#" onClick={this.toggleDropdown.bind(this)}>
+                  <span>{this.props.user.username}</span> <i className="fas fa-chevron-down" />
                 </Link>
                 {this.state.isDropDownVisible ? (
                   <div className="droppy">
                     <span className="pointer" />
                     <div className="dropdown-nav">
-                      <Link id="first" to="/profile">
+                      <Link onClick={this.changeLink.bind(this, '/profile')} id="first" to="/profile">
                         Profile
                     </Link>
-                      <Link to="/notifications">Notifications</Link>
+                      <Link onClick={this.changeLink.bind(this, '/notification')} to="/notifications">Notifications</Link>
                       <Link id="logout" to="#" onClick={this.handleLogOut.bind(this)}>
                         Logout
                     </Link>

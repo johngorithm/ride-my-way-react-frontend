@@ -6,7 +6,7 @@ import { openModal } from 'actions/modalActions'
 import { addRide } from 'actions/rideActions'
 import Button from 'components/Atom/Button';
 
-class RideCard extends React.Component {
+export class RideCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
