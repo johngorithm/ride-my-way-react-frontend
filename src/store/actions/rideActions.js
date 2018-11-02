@@ -10,20 +10,20 @@ import {
   CREATE_RIDE_SUCCESS,
   CREATE_RIDE_STARTED,
   CREATE_RIDE_FAILED
-} from 'constants';
-import { closeModal } from 'actions/modalActions';
+} from '../constants';
 
 export const getRides = () => async dispatch => {
   dispatch({
     type: GET_RIDES_STARTED
   });
   try {
-    const res = await axios.get(`https://ride-m-way.herokuapp.com/api/v1/rides`, { headers: { 'x-access-token': JSON.parse(localStorage.getItem('token')) } });
+    const res = await axios.get('/rides', { headers: { 'x-access-token': JSON.parse(localStorage.getItem('token')) } });
 
     dispatch({
       type: GET_RIDES_SUCCESS,
       rides: res.data.rides
     });
+
   } catch (error) {
     toastr.error(error.response.data.message)
     dispatch({
@@ -42,9 +42,9 @@ export const createRide = (rideInfo)=> async dispatch => {
     type: CREATE_RIDE_STARTED
   })
   try {
-    const res = await axios.post(`https://ride-m-way.herokuapp.com/api/v1/users/rides`, rideInfo, { headers: { 'x-access-token': JSON.parse(localStorage.getItem('token')) } });
+    const res = await axios.post('/users/rides', rideInfo, { headers: { 'x-access-token': JSON.parse(localStorage.getItem('token')) } });
     toastr.success(res.data.message);
-    dispatch(closeModal('CreateRideModal'))
+
 
     return dispatch({
       type: CREATE_RIDE_SUCCESS,
@@ -52,14 +52,10 @@ export const createRide = (rideInfo)=> async dispatch => {
       message: res.data.message
     });
   } catch (error) {
-    try {
-      toastr.error(error.response.data.message)
-      return dispatch({
-        type: CREATE_RIDE_FAILED,
-        message: error.response.data.message
-      });
-    } catch (err) {
-      return toastr.error(err.message);
-    }
+    toastr.error(error.response.data.message)
+    return dispatch({
+      type: CREATE_RIDE_FAILED,
+      message: error.response.data.message
+    });
   }
 }

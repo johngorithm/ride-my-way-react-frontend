@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "allowSyntheticDefaultImports": false,
+    "baseUrl": "./",
+    "paths": {
+      "constants/*": ["src/store/constancts/*"],
+      "components/*": ["src/components/*"],
+      "actions/*": ["src/store/actions*"],
+      "reducers/*": ["src/store/reducers/*"],
+      "App/*": ["src/*"]
+    }
+  },
+  "exclude": ["node_modules", "dist", "coverage", ".vscode", ".nyc_output"]
+}

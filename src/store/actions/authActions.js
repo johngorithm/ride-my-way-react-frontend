@@ -3,26 +3,26 @@ import axios from 'axios';
 import toastr from 'toastr';
 
 
-import { ADD_USER, AUTH_STARTED, AUTH_SUCCESS, AUTH_FAILED, LOG_OUT } from 'constants';
-import saveUserInLocalStorage from '../../utils/saveToLocalStorage';
-
-
-
-const baseUrl = 'https://ride-m-way.herokuapp.com/api/v1';
-
+import saveUserInLocalStorage from 'utils/saveToLocalStorage';
+import {
+  ADD_USER,
+  AUTH_STARTED, 
+  AUTH_SUCCESS,
+  AUTH_FAILED,
+  LOG_OUT } from '../constants';
 
 export const registerUser = (user) => async dispatch => {
   dispatch({
     type: AUTH_STARTED
   })
   try {
-    const response = await axios.post(`${baseUrl}/auth/signup`, user);
+    const response = await axios.post('/auth/signup', user);
 
     // PERSIST USER DATA WITH LOCALSTORAGE
     saveUserInLocalStorage(response)
-    toastr.success('Your successfully created');
+    toastr.success(response.data.message);
 
-    dispatch({
+    return dispatch({
       type: AUTH_SUCCESS,
       user: response.data.user
     })
@@ -39,10 +39,10 @@ export const registerUser = (user) => async dispatch => {
 export const loginUser = (user) => async dispatch => {
   dispatch({
     type: AUTH_STARTED
-  })
+  });
 
   try {
-    const response = await axios.post(`${baseUrl}/auth/login`, user);
+    const response = await axios.post('/auth/login', user);
     // PERSIST USER DATA WITH LOCALSTORAGE
     saveUserInLocalStorage(response)
     
