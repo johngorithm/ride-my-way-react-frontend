@@ -31,7 +31,7 @@ const authReducer = (state = initialState, action) => {
         ...state,
         isAuthenticated: true,
         user: action.user,
-        authIsLoading: true
+        authIsLoading: false
       }
     case AUTH_FAILED:
       return {

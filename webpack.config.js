@@ -1,6 +1,7 @@
 const path = require('path');
 const autoprefixer = require('autoprefixer');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
@@ -88,6 +89,9 @@ module.exports = {
       template: `${__dirname}/src/index.html`,
       filename: 'index.html',
       inject: 'body'
+    }),
+    new webpack.SourceMapDevToolPlugin({
+      filename: '[name].js.map'
     })
   ]
 };

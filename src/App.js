@@ -5,6 +5,7 @@ import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 
 import 'static/styles/App.css';
 import 'static/css/style.css';
+import 'jquery';
 
 
 import NavBar from 'components/NavBar';
