@@ -4,5 +4,6 @@
 
 <a href='https://coveralls.io/github/johngorithm/ride-my-way-react-frontend?branch=develop&service=github'><img src='https://coveralls.io/repos/github/johngorithm/ride-my-way-react-frontend/badge.svg?branch=develop&service=github' alt='Coverage Status' /></a>
 
-https://coveralls.io/repos/github/johngorithm/ride-my-way-react-frontend/badge.svg?branch=develop(Coverage Status)!:https://coveralls.io/github/johngorithm/ride-my-way-react-frontend?branch=develop
+{<img src="https://coveralls.io/repos/github/johngorithm/ride-my-way-react-frontend/badge.svg?branch=develop" alt="Coverage Status" />}[https://coveralls.io/github/johngorithm/ride-my-way-react-frontend?branch=develop]
+
 
