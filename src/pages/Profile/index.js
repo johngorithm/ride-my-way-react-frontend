@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types'
 
 
-import CreateRideModal from '../../components/CreateRideModal';
-import RideDetailModal from '../../components/RideDetailModal';
+import CreateRideModal from 'components/CreateRideModal';
+import RideDetailModal from 'components/RideDetailModal';
 import './profile.css';
 
-class Profile extends React.Component {
+export class Profile extends React.Component {
   render() {
     return (
       <Fragment>

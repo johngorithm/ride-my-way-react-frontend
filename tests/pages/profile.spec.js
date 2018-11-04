@@ -1,14 +1,33 @@
-// import React from 'react';
-// import Enzyme, { shallow, mount } from 'enzyme';
+import React from 'react';
+import { shallow } from 'enzyme';
+import {Profile} from 'pages/Profile';
+
+import CreateRideModal from 'components/CreateRideModal';
+import RideDetailModal from 'components/RideDetailModal';
 
 
-/**
- *  CONFIGURES ENZYME TO BE COMPACTIBLE WITH VERSION 16 OF REACT
- *  WHICH IS WHAT WE ARE USING
- */
-
-describe('TEST SETUP', () => {
-  test('Runs successfully', () => {
-    expect(true).toBe(true);
+const props = {
+  isCreateRideModalOpen: true,
+  isRideDetailModalOpen: true
+}
+describe('USER PROFILE TEST', () => {
+  const wrapper = shallow(<Profile {...props} />);
+  
+  test('renders successfully', () => {
+    expect(wrapper.exists()).toBe(true);
   });
+
+  test('matches snapshot', () => {
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  test('does not rendr modals when not require', () => {
+    wrapper.setProps({
+      isCreateRideModalOpen: false,
+      isRideDetailModalOpen: false
+    });
+
+    expect(wrapper.find(<CreateRideModal />).exists()).toBe(false);
+    expect(wrapper.find(<RideDetailModal />).exists()).toBe(false);
+  })
 });

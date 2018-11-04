@@ -6,12 +6,11 @@ import { NavBar } from 'components/NavBar';
 
 const mockFn = jest.fn();
 
-
 const props = {
   isAuthenticated: false,
   openModal: mockFn,
   logOut: jest.fn(() => Promise.resolve()),
-  history: {},
+  history: { push: jest.fn() },
   handleLogOut: mockFn,
   user: {
     user_id: 1,
@@ -116,5 +115,22 @@ describe('NAVBAR TEST', () => {
 
     wrapper.find('#toggle-mobile-nav').simulate('click', event);
     expect(wrapper.instance().state.isMobileNavVisible).toBe(false);
+  });
+
+  test('switches between navs', () => {
+    wrapper.setProps({
+      isAuthenticated: false
+    })
+
+    // expect(wrapper.find('#toggle-mobile-nav').exists()).toBe(true);
+    const event = {
+      preventDefault: mockFn
+    };
+
+    wrapper.instance().changeLink = mockFn;
+    wrapper.update();
+
+    wrapper.find('[to="/login"]').simulate('click', event);
+    expect(wrapper.instance().changeLink).toHaveBeenCalled();
   });
 })

@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
 import { registerUser } from 'actions/authActions';
 import './register.css';
 
-class Register extends React.Component {
+export class Register extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

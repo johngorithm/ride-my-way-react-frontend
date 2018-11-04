@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`USER REGISTRATION TEST matches snapshot 1`] = `
+<Fragment>
+  <main
+    className="content"
+    id="register-page"
+  >
+    <div
+      className="overlay"
+    />
+    <div
+      className="wrapper"
+    >
+      <h3>
+        JOIN US
+      </h3>
+      <form
+        id="register-form"
+        onSubmit={[Function]}
+      >
+        <br />
+        <div
+          className="row"
+        >
+          <div
+            className="field co-xl-6 col-lg-6 co-md-6 co-sm-6 co-xs-12"
+          >
+            <p
+              className="label small"
+            >
+              First Name 
+            </p>
+            <input
+              name="firstname"
+              onChange={[Function]}
+              placeholder="first name"
+              type="text"
+            />
+          </div>
+          <div
+            className="field co-xl-6 col-lg-6 co-md-6 co-sm-6 co-xs-12"
+          >
+            <p
+              className="label small"
+            >
+              Last Name 
+            </p>
+            <input
+              name="lastname"
+              onChange={[Function]}
+              placeholder="last name"
+              type="text"
+            />
+          </div>
+          <div
+            className="field co-xl-12 co-lg-12 co-md-12 co-sm-12 co-xs-12"
+          >
+            <p
+              className="label small"
+            >
+              Email 
+            </p>
+            <input
+              name="email"
+              onChange={[Function]}
+              placeholder="email"
+              type="text"
+            />
+          </div>
+          <div
+            className="field co-xl-6 col-lg-6 co-md-6 co-sm-6 co-xs-12"
+          >
+            <p
+              className="label small"
+            >
+              Username 
+            </p>
+            <input
+              name="username"
+              onChange={[Function]}
+              placeholder="username"
+              type="text"
+            />
+          </div>
+          <div
+            className="field co-xl-6 col-lg-6 co-md-6 co-sm-6 co-xs-12"
+          >
+            <p
+              className="label small"
+            >
+              Password 
+            </p>
+            <input
+              name="password"
+              onChange={[Function]}
+              placeholder="password"
+              type="password"
+            />
+          </div>
+        </div>
+        <br />
+        <div
+          className="panel-footer right-text"
+        >
+          <button
+            className="button button-blue"
+            id="register-btn"
+            type="submit"
+          >
+            REGISTER
+          </button>
+        </div>
+      </form>
+    </div>
+  </main>
+</Fragment>
+`;

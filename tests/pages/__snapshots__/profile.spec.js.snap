@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`USER PROFILE TEST matches snapshot 1`] = `
+<Fragment>
+  <withRouter(Connect(CreateRideModal)) />
+  <Connect(RideDetailModal) />
+  <main
+    id="profile-loader"
+  >
+    <p
+      id="general-message"
+    />
+    <header
+      id="profile-header"
+    >
+      <div
+        className="row"
+        id="user-info"
+      >
+        <p
+          id="user-loader"
+        >
+          Loading ...
+        </p>
+      </div>
+    </header>
+    <section
+      id="ride-details"
+    >
+      <div
+        className="row wrapper"
+      >
+        <div
+          className="co-xl-6 co-lg-6 co-md-6 co-sm-12"
+        >
+          <div
+            className="square"
+          >
+            <p>
+              RIDES OFFERED
+            </p>
+            <h1
+              id="offered"
+            >
+              Loading...
+            </h1>
+          </div>
+        </div>
+        <div
+          className="co-xl-6 co-lg-6 co-md-6 co-sm-12"
+        >
+          <div
+            className="square"
+          >
+            <p>
+              RIDES TAKEN
+            </p>
+            <h1
+              id="taken"
+            >
+              Loading...
+            </h1>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      className="hori-display"
+      id="rides-offered"
+    >
+      <div
+        className="wrapper"
+      >
+        <h5
+          className="section-intro center-text"
+        >
+          RIDES OFFERED
+        </h5>
+        <div
+          className="container center-text"
+        >
+          <p
+            className="loading"
+            id="rides-offered-loader "
+          >
+            Loading ...
+          </p>
+        </div>
+      </div>
+    </section>
+    <section
+      className="hori-display"
+      id="rides-taken"
+    >
+      <div
+        className="wrapper"
+      >
+        <h5
+          className="section-intro center-text"
+        >
+          RIDES TAKEN
+        </h5>
+        <div
+          className="container center-text"
+        >
+          <p
+            className="loading"
+            id="rides-taken-loader"
+          >
+            Loading ...
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+</Fragment>
+`;

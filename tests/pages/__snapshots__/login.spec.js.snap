@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`USER LOGIN TEST matches snapshot 1`] = `
+<Fragment>
+  <main
+    className="content"
+    id="login-page"
+  >
+    <div
+      className="overlay"
+    />
+    <div
+      className="wrapper"
+    >
+      <h3>
+        LOGIN
+      </h3>
+      <form
+        onSubmit={[Function]}
+      >
+        <p
+          className="error-message"
+        />
+        <p
+          className="success-message"
+        />
+        <input
+          name="username"
+          onChange={[Function]}
+          placeholder="Enter Username"
+          required={true}
+          type="text"
+        />
+        <br />
+        <input
+          name="password"
+          onChange={[Function]}
+          placeholder="Enter Password"
+          required={true}
+          type="password"
+        />
+        <br />
+        <button
+          className="button button-blue"
+          id="login-btn"
+          type="submit"
+        >
+          LOGIN
+        </button>
+      </form>
+    </div>
+  </main>
+</Fragment>
+`;
